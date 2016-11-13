@@ -1,0 +1,18 @@
+USING: io kernel math math.parser ;
+USING: formatting io kernel locals math math.functions math.parser ;
+USING: formatting kernel math sequences ;
+
+IN: B
+
+:: binary ( n -- binary(n) )
+    dup
+    0 =
+    [ 0 ]
+    [ [ 2 / binary ] [ 2 rem ] bi 10 * + ]
+    if
+   ;
+
+readln string>number   
+binary
+number>string print
+drop

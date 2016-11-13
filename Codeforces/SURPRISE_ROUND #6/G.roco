@@ -1,0 +1,60 @@
+co swap {
+	set [500] [[300]]
+	set [[300]] [[301]]
+	set [[301]] [500]
+	ac
+}
+
+co sort2 {
+	eq [1000] [300] [0]
+	if [1000] ac
+
+	set [301] [300]
+	add [301] [301] 1
+
+	gt [1000] [[300]] [[301]]
+	if [1000] ca swap
+
+	add [300] [300] 1
+}
+
+co sort1 {
+	eq [1000] [200] [0]
+	if [1000] ac
+
+	set [300] 1
+	ca sort2
+
+	add [200] [200] 1
+}
+
+co reading {
+	iin [[200]]
+
+	eq [1000] [200] [0]
+	if [1000] ac
+
+	add [200] [200] 1
+}
+
+co output {
+	iout [[200]]
+	cout 32
+
+	eq [1000] [200] [0]
+	if [1000] ac
+
+	add [200] [200] 1
+}
+
+iin [0]
+set [200] 1
+ca reading
+
+set [200] 1
+ca sort1
+
+set [200] 1
+ca output
+
+ac

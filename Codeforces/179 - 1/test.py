@@ -1,0 +1,1 @@
+print(sum(x * x * x for x in range(0, 500)))

@@ -1,0 +1,28 @@
+co binary {
+	eq [32] [30] 0
+	if [32] ac
+
+	mod [[31]] [30] 2
+	add [31] [31] 1
+
+	div [30] [30] 2
+}
+
+co output {
+	iout [[31]]
+
+	eq [32] [31] 0
+	if [32] ac
+
+	sub [31] [31] 1
+}
+
+iin [30]
+set [31] 0
+
+ca binary
+
+sub [31] [31] 1
+ca output
+
+ac

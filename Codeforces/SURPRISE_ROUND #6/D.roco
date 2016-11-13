@@ -1,0 +1,27 @@
+co output {
+	gt [7] [2] [1]
+	if [7] ac
+
+	cout 42
+
+	add [2] [2] 1
+}
+
+co cycle {
+	gt [7] [1] [0]
+	if [7] ac
+
+	set [2] 1
+	ca output
+
+	cout 10
+
+	add [1] [1] 1
+}
+
+iin [0]
+
+set [1] 1
+ca cycle
+
+ac
